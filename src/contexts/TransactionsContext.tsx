@@ -34,10 +34,12 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
 
     console.log(url)
 
-    const response = fetch(url);
-    const data = (await response).json();
+    const response = await fetch(url);
+    const data = await response.json();
 
-    setTransactions(await data);
+    console.log(data)
+
+    setTransactions(data);
   }
 
   useEffect(() => {
